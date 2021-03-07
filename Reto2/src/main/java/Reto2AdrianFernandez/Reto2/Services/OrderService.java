@@ -13,30 +13,23 @@ import Reto2AdrianFernandez.Reto2.Services.Models.OrderProductDTO;
 
 public class OrderService {
 
-    @Autowired
-    private OrderRepository orderRepository;
-  
-    @Autowired
-    private OrderProductRepository orderProductRepository;
-  
-    @Autowired
-    private ModelMapper modelMapper;
-  
-    public List<OrderDTO> getAll() {
-      return orderRepository
-        .findAll()
-        .stream()
-        .map(x -> modelMapper.map(x, OrderDTO.class))
-        .collect(Collectors.toList());
-    }
-  
-    public List<OrderProductDTO> getOrderProductsByOrderId(Long id) {
-      List<OrderProductDTO> ops = orderProductRepository
-        .findOrdersAndProductsByOrderId(id)
-        .stream()
-        .map(x -> modelMapper.map(x, OrderProductDTO.class))
-        .collect(Collectors.toList());
+  @Autowired
+  private OrderRepository orderRepository;
 
-      return ops;
-    }
+  @Autowired
+  private OrderProductRepository orderProductRepository;
+
+  @Autowired
+  private ModelMapper modelMapper;
+
+  public List<OrderDTO> getAll() {
+    return orderRepository.findAll().stream().map(x -> modelMapper.map(x, OrderDTO.class)).collect(Collectors.toList());
   }
+
+  public List<OrderProductDTO> getOrderProductsByOrderId(Long id) {
+    List<OrderProductDTO> ops = orderProductRepository.findOrdersAndProductsByOrderId(id).stream()
+        .map(x -> modelMapper.map(x, OrderProductDTO.class)).collect(Collectors.toList());
+
+    return ops;
+  }
+}

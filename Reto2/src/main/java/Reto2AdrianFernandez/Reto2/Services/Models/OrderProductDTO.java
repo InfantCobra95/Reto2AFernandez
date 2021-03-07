@@ -9,36 +9,36 @@ public class OrderProductDTO {
     private OrderEntity orderEntity;
     private ProductEntity productEntity;
     private int quantity;
-  
+
     public Long getId() {
-      return id;
+        return id;
     }
-  
+
     public void setId(Long id) {
-      this.id = id;
+        this.id = id;
     }
-  
+
     public OrderEntity getOrderEntity() {
-      return orderEntity;
+        return orderEntity;
     }
-  
+
     public ProductEntity getProductEntity() {
-      return productEntity;
+        return productEntity;
     }
-  
+
     public void setOrderEntity(OrderEntity orderEntity) {
-      this.orderEntity = orderEntity;
+        this.orderEntity = orderEntity;
     }
-  
+
     public void setProductEntity(ProductEntity productEntity) {
-      this.productEntity = productEntity;
+        this.productEntity = productEntity;
     }
-  
+
     public int getQuantity() {
-      return quantity;
+        return quantity;
     }
-  
+
     public void setQuantity(int quantity) {
-      this.quantity = quantity;
+        this.quantity = quantity;
     }
-  }
+}

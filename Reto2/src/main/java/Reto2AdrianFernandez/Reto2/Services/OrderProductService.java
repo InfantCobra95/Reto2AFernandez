@@ -12,8 +12,8 @@ import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.ProductRepository;
 import Reto2AdrianFernandez.Reto2.Services.Models.OrderProductDTO;
 
 public class OrderProductService {
-    
-    @Autowired
+
+  @Autowired
   private OrderProductRepository orderProductRepository;
 
   @Autowired

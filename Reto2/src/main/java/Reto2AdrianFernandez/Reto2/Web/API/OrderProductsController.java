@@ -16,24 +16,20 @@ import Reto2AdrianFernandez.Reto2.Services.Models.OrderProductDTO;
 @RequestMapping("orderproducts")
 public class OrderProductsController {
 
-  private final OrderProductService orderProductService;
+    private final OrderProductService orderProductService;
 
-  OrderProductsController(OrderProductService orderProductService) {
-    this.orderProductService = orderProductService;
-  }
+    OrderProductsController(OrderProductService orderProductService) {
+        this.orderProductService = orderProductService;
+    }
 
-  @GetMapping
-  public List<OrderProductDTO> GetOrderProducts() {
-    return orderProductService.getAll();
-  }
+    @GetMapping
+    public List<OrderProductDTO> GetOrderProducts() {
+        return orderProductService.getAll();
+    }
 
-  @GetMapping("{id}")
-  public List<OrderProductDTO> GetOrderProductsByOrderId(
-    @PathVariable("id") Long id
-  ) {
-    return orderProductService.getOrdersAndProductsByOrderId(id);
-  }
-
-  
+    @GetMapping("{id}")
+    public List<OrderProductDTO> GetOrderProductsByOrderId(@PathVariable("id") Long id) {
+        return orderProductService.getOrdersAndProductsByOrderId(id);
+    }
 
 }

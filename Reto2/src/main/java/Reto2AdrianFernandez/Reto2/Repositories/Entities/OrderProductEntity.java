@@ -11,62 +11,58 @@ import javax.persistence.Table;
 @Entity(name = "OrderProducts")
 public class OrderProductEntity {
 
-  @Id
-  @GeneratedValue
-  private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-  @ManyToOne
-  @JoinColumn(name = "order_id")
-  private OrderEntity orderEntity;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderEntity orderEntity;
 
-  
-  @ManyToOne
-  @JoinColumn(name = "product_id")
-  private ProductEntity productEntity;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity productEntity;
 
-  private int quantity;
+    private int quantity;
 
-  public OrderProductEntity(
-    ProductEntity productEntity,
-    OrderEntity orderEntity,
-    int quantity
-  ) {
-    this.orderEntity = orderEntity;
-    this.productEntity = productEntity;
-    this.quantity = quantity;
-  }
+    public OrderProductEntity(ProductEntity productEntity, OrderEntity orderEntity, int quantity) {
+        this.orderEntity = orderEntity;
+        this.productEntity = productEntity;
+        this.quantity = quantity;
+    }
 
-  public OrderProductEntity() {}
+    public OrderProductEntity() {
+    }
 
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-  public int getQuantity() {
-    return quantity;
-  }
+    public int getQuantity() {
+        return quantity;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public OrderEntity getOrderEntity() {
-    return orderEntity;
-  }
+    public OrderEntity getOrderEntity() {
+        return orderEntity;
+    }
 
-  public ProductEntity getProductEntity() {
-    return productEntity;
-  }
+    public ProductEntity getProductEntity() {
+        return productEntity;
+    }
 
-  public void setOrderEntity(OrderEntity orderEntity) {
-    this.orderEntity = orderEntity;
-  }
+    public void setOrderEntity(OrderEntity orderEntity) {
+        this.orderEntity = orderEntity;
+    }
 
-  public void setProductEntity(ProductEntity productEntity) {
-    this.productEntity = productEntity;
-  }
+    public void setProductEntity(ProductEntity productEntity) {
+        this.productEntity = productEntity;
+    }
 }

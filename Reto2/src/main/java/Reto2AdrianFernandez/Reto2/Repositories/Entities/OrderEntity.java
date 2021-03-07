@@ -19,7 +19,8 @@ public class OrderEntity {
   private String username;
   private String status;
 
-  public OrderEntity() {}
+  public OrderEntity() {
+  }
 
   public OrderEntity(String username, String status) {
     this.date = CreateDateNow();
