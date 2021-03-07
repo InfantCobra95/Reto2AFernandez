@@ -1,19 +1,21 @@
 package Reto2AdrianFernandez.Reto2.Services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Reto2AdrianFernandez.Reto2.Repositories.Entities.OrderProductEntity;
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.OrderProductRepository;
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.OrderRepository;
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.ProductRepository;
 import Reto2AdrianFernandez.Reto2.Services.Models.OrderProductDTO;
 
 public class OrderProductService {
-    
-    @Autowired
+
+  @Autowired
   private OrderProductRepository orderProductRepository;
 
   @Autowired
@@ -36,4 +38,16 @@ public class OrderProductService {
 
     return op;
   }
+
+  /*  Filtrar por ID NO FUNCIONAL
+  public OrderProductDTO getById(Long id){
+    Optional<OrderProductEntity> orderProduct = orderProductRepository.findById(Long.valueOf(id));
+    if(orderProduct.isPresent()){
+        return modelMapper.map(orderProduct.get(), OrderProductDTO.class);
+    }else{
+        return null;
+    }
+  }
+  */
+
 }

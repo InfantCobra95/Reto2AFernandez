@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,24 +14,27 @@ import Reto2AdrianFernandez.Reto2.Services.Models.OrderProductDTO;
 @RequestMapping("orderproducts")
 public class OrderProductsController {
 
-  private final OrderProductService orderProductService;
+    private final OrderProductService orderProductService;
 
-  OrderProductsController(OrderProductService orderProductService) {
-    this.orderProductService = orderProductService;
-  }
+    OrderProductsController(OrderProductService orderProductService) {
+        this.orderProductService = orderProductService;
+    }
 
-  @GetMapping
-  public List<OrderProductDTO> GetOrderProducts() {
-    return orderProductService.getAll();
-  }
+    @GetMapping()
+    public List<OrderProductDTO> GetOrderProducts() {
+        return orderProductService.getAll();
+    }
 
-  @GetMapping("{id}")
-  public List<OrderProductDTO> GetOrderProductsByOrderId(
-    @PathVariable("id") Long id
-  ) {
-    return orderProductService.getOrdersAndProductsByOrderId(id);
-  }
+    @GetMapping("order/{id}")
+    public List<OrderProductDTO> GetOrderProductsByOrderId(@PathVariable("id") Long id) {
+        return orderProductService.getOrdersAndProductsByOrderId(id);
+    }
 
-  
+    /*  Filtrar por ID NO FUNCIONAL
+    @GetMapping("{id}")
+    public List<OrderProductDTO> GetOrderProductsByID(@PathVariable("id") Long id) {
+        return orderProductService.getById(id);
+    }
+    */
 
 }

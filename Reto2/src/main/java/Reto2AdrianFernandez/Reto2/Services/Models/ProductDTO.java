@@ -6,36 +6,36 @@ public class ProductDTO {
     private String nombre;
     private double precio;
     private String img;
-  
+
     public void setId(Long id) {
-      this.id = id;
+        this.id = id;
     }
-  
+
     public Long getId() {
-      return id;
+        return id;
     }
-  
+
     public String getNombre() {
-      return nombre;
+        return nombre;
     }
-  
+
     public void setNombre(String nombre) {
-      this.nombre = nombre;
+        this.nombre = nombre;
     }
-  
+
     public double getPrecio() {
-      return precio;
+        return precio;
     }
-  
+
     public void setPrecio(double precio) {
-      this.precio = precio;
+        this.precio = precio;
     }
-  
+
     public String getImg() {
-      return img;
+        return img;
     }
-  
+
     public void setImg(String img) {
-      this.img = img;
+        this.img = img;
     }
-  }
+}

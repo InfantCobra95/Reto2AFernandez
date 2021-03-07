@@ -13,23 +13,23 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DI {
 
-  @Bean
-  OrderProductService createOrderProductService() {
-    return new OrderProductService();
-  }
+    @Bean
+    OrderProductService createOrderProductService() {
+        return new OrderProductService();
+    }
 
-  @Bean
-  ProductService createProductService() {
-    return new ProductService();
-  }
+    @Bean
+    ProductService createProductService() {
+        return new ProductService();
+    }
 
-  @Bean
-  OrderService createOrderService() {
-    return new OrderService();
-  }
+    @Bean
+    OrderService createOrderService() {
+        return new OrderService();
+    }
 
-  @Bean
-  ModelMapper createModelMapper() {
-    return new ModelMapper();
-  }
+    @Bean
+    ModelMapper createModelMapper() {
+        return new ModelMapper();
+    }
 }

@@ -22,7 +22,6 @@ public class InitDB {
     private ProductEntity productEntity2 = new ProductEntity("Umbreon", 2000.75, "umbreon.png");
     private ProductEntity productEntity3 = new ProductEntity("Pipo", 250000000.00, "pipo.jpg");
     private ProductEntity productEntity4 = new ProductEntity("Ledyba", 1551.51, "ledyba.png");
-    
 
     @Bean
     CommandLineRunner initDatabase(ProductRepository productRepository, OrderRepository orderRepository,
@@ -32,7 +31,7 @@ public class InitDB {
             productRepository.save(productEntity2);
             productRepository.save(productEntity3);
             productRepository.save(productEntity4);
-            
+
             orderRepository.save(orderEntity1);
             orderRepository.save(orderEntity2);
 
