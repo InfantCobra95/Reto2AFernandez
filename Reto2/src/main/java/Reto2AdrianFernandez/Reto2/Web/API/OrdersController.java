@@ -3,6 +3,7 @@ package Reto2AdrianFernandez.Reto2.Web.API;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,13 +21,18 @@ public class OrdersController {
         this.orderService = orderService;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<OrderDTO> GetProducts() {
         return orderService.getAll();
     }
 
     @GetMapping("{id}")
-    public List<OrderProductDTO> GetOrderProductsByOrderId(Long id) {
+    public List<OrderProductDTO> GetProductsByID(@PathVariable("id") Long id) {
+        return orderService.getOrderProductsByOrderId(id);
+    }
+
+    @GetMapping("order/{id}")
+    public List<OrderProductDTO> GetOrderProductsByOrderId(@PathVariable("id") Long id) {
         return orderService.getOrderProductsByOrderId(id);
     }
 }
