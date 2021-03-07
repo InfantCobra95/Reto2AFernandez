@@ -25,7 +25,7 @@ public class ProductsController {
   }
 
 
-  @GetMapping("{id}")
+  @GetMapping("/{id}")
   public ProductDTO GetOrderProductsByOrderId(Long id){
     return productService.getById(id);
   }
