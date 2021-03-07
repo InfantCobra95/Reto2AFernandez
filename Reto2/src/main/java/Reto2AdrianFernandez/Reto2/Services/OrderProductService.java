@@ -1,5 +1,6 @@
 package Reto2AdrianFernandez.Reto2.Services;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -75,6 +76,15 @@ public class OrderProductService {
       orderProductRepository.save(op);
     }
     return oderId;
+  }
+
+  public void DeleteOrderProducts(Long id) {
+
+    Collection<OrderProductEntity> ops = orderProductRepository.findOrdersAndProductsByOrderId(id);
+
+    for (OrderProductEntity op : ops) {
+      orderProductRepository.delete(op);
+    }
   }
 
 }
