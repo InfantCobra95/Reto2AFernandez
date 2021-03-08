@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Reto2AdrianFernandez.Reto2.Common.NFException;
 import Reto2AdrianFernandez.Reto2.Repositories.Entities.OrderEntity;
 import Reto2AdrianFernandez.Reto2.Repositories.Entities.OrderProductEntity;
 import Reto2AdrianFernandez.Reto2.Repositories.Entities.ProductEntity;
@@ -15,6 +16,7 @@ import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.OrderProductRepository
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.OrderRepository;
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.ProductRepository;
 import Reto2AdrianFernandez.Reto2.Services.Models.OrderProductDTO;
+import javassist.NotFoundException;
 
 public class OrderProductService {
 
@@ -38,6 +40,10 @@ public class OrderProductService {
   public List<OrderProductDTO> getOrdersAndProductsByOrderId(Long id) {
     var op = orderProductRepository.findOrdersAndProductsByOrderId(id).stream()
         .map(x -> modelMapper.map(x, OrderProductDTO.class)).collect(Collectors.toList());
+
+        if (op.isEmpty()) {
+          throw new NFException();
+        }
 
     return op;
   }

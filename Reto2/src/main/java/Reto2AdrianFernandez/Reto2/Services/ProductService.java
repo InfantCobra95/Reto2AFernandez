@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Reto2AdrianFernandez.Reto2.Common.NFException;
 import Reto2AdrianFernandez.Reto2.Repositories.Entities.ProductEntity;
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.ProductRepository;
 import Reto2AdrianFernandez.Reto2.Services.Models.ProductDTO;
@@ -29,7 +30,8 @@ public class ProductService {
     if(product.isPresent()){
         return modelMapper.map(product.get(), ProductDTO.class);
     }else{
-        return null;
+      throw new NFException();
     }
+    
 }
 }

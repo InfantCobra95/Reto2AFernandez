@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Reto2AdrianFernandez.Reto2.Common.NFException;
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.OrderProductRepository;
 import Reto2AdrianFernandez.Reto2.Repositories.Interfaces.OrderRepository;
 import Reto2AdrianFernandez.Reto2.Services.Models.OrderDTO;
@@ -30,6 +31,9 @@ public class OrderService {
     List<OrderProductDTO> ops = orderProductRepository.findOrdersAndProductsByOrderId(id).stream()
         .map(x -> modelMapper.map(x, OrderProductDTO.class)).collect(Collectors.toList());
 
+        if (ops.isEmpty()) {
+          throw new NFException();
+        }
     return ops;
   }
 }
