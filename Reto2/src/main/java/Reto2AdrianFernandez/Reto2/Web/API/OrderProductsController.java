@@ -2,8 +2,11 @@ package Reto2AdrianFernandez.Reto2.Web.API;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,11 +33,22 @@ public class OrderProductsController {
         return orderProductService.getOrdersAndProductsByOrderId(id);
     }
 
-    /*  Filtrar por ID NO FUNCIONAL
-    @GetMapping("{id}")
-    public List<OrderProductDTO> GetOrderProductsByID(@PathVariable("id") Long id) {
-        return orderProductService.getById(id);
+    /*
+     * Filtrar por ID NO FUNCIONAL
+     * 
+     * @GetMapping("{id}") public List<OrderProductDTO>
+     * GetOrderProductsByID(@PathVariable("id") Long id) { return
+     * orderProductService.getById(id); }
+     */
+
+    @PostMapping()
+    public Long InsertOrderProducts(@RequestBody List<OrderProductDTO> newOrderProduct) {
+        return orderProductService.InsertOrderProducts(newOrderProduct);
     }
-    */
+
+    @DeleteMapping("{id}")
+    public void DeleteOrderProduct(@PathVariable("id") Long id) {
+        orderProductService.DeleteOrderProducts(id);
+    }
 
 }
